@@ -66,6 +66,22 @@ public class Matriz {
         return ret;
     }
 
+
+    public Matriz calcularTraspuesta() {
+        int filas = this.getDimension().height;
+        int columnas = this.getDimension().width;
+        Matriz traspuesta = new Matriz(columnas, filas, false);
+        
+        for (int i = 0; i < columnas; i++) {
+            for (int j = 0; j < filas; j++) {
+                traspuesta.datos[j][i] = this.datos[i][j];
+            }
+        }
+        return traspuesta;
+    }
+    
+
+
     public static Matriz multiplicarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles {
         if (a.getDimension().width != b.getDimension().height)
             throw new DimensionesIncompatibles("La multiplicación de matrices requiere que el número de columnas de A sea igual al número de filas de B");
