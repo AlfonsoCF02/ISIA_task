@@ -65,4 +65,20 @@ public class Matriz {
         ret += "]\n";
         return ret;
     }
+
+
+    public Matriz calcularTraspuesta() {
+        int filas = this.getDimension().height;
+        int columnas = this.getDimension().width;
+        Matriz traspuesta = new Matriz(columnas, filas, false);
+        
+        for (int i = 0; i < columnas; i++) {
+            for (int j = 0; j < filas; j++) {
+                traspuesta.datos[j][i] = this.datos[i][j];
+            }
+        }
+        return traspuesta;
+    }
+    
+
 }
